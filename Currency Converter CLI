@@ -1,0 +1,17 @@
+import requests
+
+def convert_currency(amount, from_currency, to_currency, api_key="YOUR_API_KEY"):
+    url = f"https://v6.exchangerate-api.com/v6/{api_key}/latest/{from_currency}"
+    response = requests.get(url).json()
+    if response.get("conversion_rates"):
+        rate = response["conversion_rates"].get(to_currency)
+        if rate:
+            converted = amount * rate
+            print(f"{amount} {from_currency} = {converted:.2f} {to_currency}")
+        else:
+            print("Target currency not found.")
+    else:
+        print("Error fetching rates.")
+
+# Example usage
+convert_currency(100, "USD", "INR", "YOUR_API_KEY")
