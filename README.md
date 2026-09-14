@@ -9,3 +9,9 @@ This repository contains a collection of small but impactful coding projects des
 1. Clone the repository:
    ```bash
    git clone https://github.com/verit700344/MINI-CLASSICS/mini-projects-portfolio.git
+License
+---
+
+This README gives your repo a **professional and recruiter‑friendly look** while keeping it simple.  
+
+Would you like me to also prepare **individual mini‑README templates** for each project folder (Sudoku, URL Shortener, etc.) so they’re consistent and polished across the repo?
