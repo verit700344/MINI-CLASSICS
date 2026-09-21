@@ -1,0 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = "https://en.wikipedia.org/wiki/Artificial_intelligence"
+response = requests.get(url)
+
+soup = BeautifulSoup(response.text, "html.parser")
+
+# Extract all paragraph text
+paragraphs = soup.find_all("p")
+for p in paragraphs[:5]:
+    print(p.get_text())
