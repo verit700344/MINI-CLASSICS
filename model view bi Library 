@@ -1,0 +1,15 @@
+from Bio import Entrez
+
+# Always tell NCBI who you are
+Entrez.email = "your_email@example.com"
+
+# Search PubMed for AI-related papers
+handle = Entrez.esearch(db="pubmed", term="artificial intelligence", retmax=5)
+record = Entrez.read(handle)
+ids = record["IdList"]
+
+# Fetch abstracts
+for paper_id in ids:
+    fetch_handle = Entrez.efetch(db="pubmed", id=paper_id, rettype="abstract", retmode="text")
+    print(fetch_handle.read())
+    fetch_handle.close()
