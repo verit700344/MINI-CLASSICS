@@ -1,0 +1,8 @@
+import sympy as sp
+
+x = sp.Symbol('x')
+expr = sp.sqrt(3*x - 1) + (1 + x)**2
+
+# Simplify and expand
+print("Expression:", expr)
+print("Expanded:", sp.expand(expr))
