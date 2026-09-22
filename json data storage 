@@ -1,0 +1,12 @@
+import json
+
+# Example data from multiple sources
+data = {
+    "scientific_paper": "Abstract about AI from PubMed...",
+    "news_article": "Headline from NewsAPI...",
+    "textbook_image_text": "Extracted diagram labels...",
+    "web_text": "Paragraph scraped from Wikipedia..."
+}
+
+# Save to JSON file
+with open("llm_dataset.json", "w") as file:
