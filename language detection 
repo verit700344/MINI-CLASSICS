@@ -1,0 +1,6 @@
+from langdetect import detect
+
+texts = ["Bonjour tout le monde", "Hello world", "नमस्ते दुनिया"]
+
+for t in texts:
+    print(t, "→", detect(t))
