@@ -1,0 +1,10 @@
+import re
+
+text = "This   is   an example!!! With numbers 123 and symbols #$%."
+
+# Remove extra spaces, punctuation, and digits
+cleaned = re.sub(r'\s+', ' ', text)       # normalize spaces
+cleaned = re.sub(r'[^\w\s]', '', cleaned) # remove punctuation
+cleaned = re.sub(r'\d+', '', cleaned)     # remove digits
+
+print("Cleaned Text:", cleaned)
