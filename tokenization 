@@ -1,0 +1,8 @@
+from transformers import AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+
+text = "Large Language Models learn from diverse data."
+tokens = tokenizer.tokenize(text)
+
+print("Tokens:", tokens)
