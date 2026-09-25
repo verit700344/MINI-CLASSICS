@@ -1,0 +1,21 @@
+from textblob import TextBlob
+
+# Example headlines
+headlines = [
+    "AI breakthrough improves healthcare",
+    "Stock market crashes due to global crisis",
+    "Local team draws in championship"
+]
+
+summary = {"positive":0, "negative":0, "neutral":0}
+
+for h in headlines:
+    sentiment = TextBlob(h).sentiment.polarity
+    if sentiment > 0:
+        summary["positive"] += 1
+    elif sentiment < 0:
+        summary["negative"] += 1
+    else:
+        summary["neutral"] += 1
+
+print("Sentiment summary:", summary)
