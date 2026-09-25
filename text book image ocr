@@ -1,0 +1,16 @@
+import pytesseract
+from PIL import Image
+import json
+
+img = Image.open("diagram.png")
+text = pytesseract.image_to_string(img)
+
+labels = text.split("\n")
+labels = [l for l in labels if l.strip()]
+
+data = {f"label{i+1}": l for i, l in enumerate(labels)}
+
+with open("labels.json", "w") as f:
+    json.dump(data, f, indent=4)
+
+print("Extracted labels saved to labels.json")
