@@ -1,0 +1,17 @@
+import requests
+
+API_KEY = "your_api_key_here"
+city = "Sulthan Bathery"
+url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+
+response = requests.get(url).json()
+temp = response["main"]["temp"]
+
+if temp > 30:
+    status = "Hot"
+elif temp > 20:
+    status = "Moderate"
+else:
+    status = "Cold"
+
+print(f"Temperature in {city}: {temp}°C → {status}")
