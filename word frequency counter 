@@ -1,0 +1,7 @@
+from collections import Counter
+
+with open("sample.txt", "r") as f:
+    text = f.read().lower().split()
+
+counter = Counter(text)
+print("Top 5 words:", counter.most_common(5))
