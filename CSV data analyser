@@ -1,0 +1,15 @@
+import csv
+
+scores = []
+with open("students.csv", newline="") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        scores.append((row["Name"], int(row["Score"])))
+
+avg = sum(s for _, s in scores) / len(scores)
+print("Average Score:", avg)
+
+print("Students above average:")
+for name, score in scores:
+    if score > avg:
+        print(name, score)
