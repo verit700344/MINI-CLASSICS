@@ -1,0 +1,6 @@
+from PIL import Image
+
+img = Image.open("diagram.png")
+img.convert("RGB").save("diagram_converted.jpg", "JPEG")
+
+print("Image converted to JPEG successfully.")
