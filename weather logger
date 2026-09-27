@@ -1,0 +1,16 @@
+import requests, csv
+from datetime import datetime
+
+API_KEY = "your_api_key_here"
+city = "Sulthan Bathery"
+url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+
+response = requests.get(url).json()
+temp = response["main"]["temp"]
+timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+with open("weather_log.csv", "a", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow([timestamp, city, temp])
+
+print(f"Logged {temp}°C for {city} at {timestamp}")
