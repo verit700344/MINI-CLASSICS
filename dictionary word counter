@@ -1,0 +1,9 @@
+from collections import Counter
+
+text = input("Enter a paragraph: ").lower()
+words = text.split()
+
+counter = Counter(words)
+sorted_counter = dict(sorted(counter.items(), key=lambda x: x[1], reverse=True))
+
+print("Word frequencies:", sorted_counter)
