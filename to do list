@@ -1,0 +1,9 @@
+tasks = []
+
+tasks.append("Finish homework")
+tasks.append("Read a book")
+tasks.append("Practice Python")
+
+print("My To‑Do List:")
+for i, t in enumerate(tasks, 1):
+    print(f"{i}. {t}")
