@@ -1,0 +1,29 @@
+class Library:
+    def __init__(self):
+        self.books = {}
+
+    def add_book(self, title, author, isbn):
+        self.books[isbn] = {"title": title, "author": author, "available": True}
+
+    def borrow_book(self, isbn):
+        if isbn in self.books and self.books[isbn]["available"]:
+            self.books[isbn]["available"] = False
+            print(f"You borrowed {self.books[isbn]['title']}")
+        else:
+            print("Book not available")
+
+    def return_book(self, isbn):
+        if isbn in self.books:
+            self.books[isbn]["available"] = True
+            print(f"You returned {self.books[isbn]['title']}")
+
+    def search(self, keyword):
+        results = [b for b in self.books.values() if keyword.lower() in b["title"].lower()]
+        print("Search results:", results)
+
+
+lib = Library()
+lib.add_book("Python Basics", "John Doe", "123")
+lib.borrow_book("123")
+lib.return_book("123")
+lib.search("Python")
