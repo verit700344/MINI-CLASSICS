@@ -1,0 +1,22 @@
+from textblob import TextBlob
+
+with open("chat.txt") as f:
+    messages = f.readlines()
+
+summary = {"positive": 0, "negative": 0, "neutral": 0}
+most_pos, most_neg = ("", -1), ("", 1)
+
+for msg in messages:
+    polarity = TextBlob(msg).sentiment.polarity
+    if polarity > 0:
+        summary["positive"] += 1
+        if polarity > most_pos[1]: most_pos = (msg, polarity)
+    elif polarity < 0:
+        summary["negative"] += 1
+        if polarity < most_neg[1]: most_neg = (msg, polarity)
+    else:
+        summary["neutral"] += 1
+
+print("Summary:", summary)
+print("Most Positive:", most_pos[0])
+print("Most Negative:", most_neg[0])
