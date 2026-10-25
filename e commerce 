@@ -1,0 +1,23 @@
+import json
+
+cart = []
+
+def add_item(name, price, qty):
+    cart.append({"name": name, "price": price, "qty": qty})
+
+def remove_item(name):
+    global cart
+    cart = [item for item in cart if item["name"] != name]
+
+def checkout():
+    subtotal = sum(item["price"] * item["qty"] for item in cart)
+    tax = subtotal * 0.05
+    total = subtotal + tax
+    print("Subtotal:", subtotal, "Tax:", tax, "Total:", total)
+    with open("cart.json", "w") as f:
+        json.dump(cart, f)
+
+add_item("Laptop", 50000, 1)
+add_item("Mouse", 500, 2)
+remove_item("Mouse")
+checkout()
